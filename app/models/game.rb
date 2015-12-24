@@ -10,8 +10,9 @@ class Game
   end
 
   def self.forfeit(uuid)
-    winner = opponent_for(uuid)
-    ActionCable.server.broadcast "player_#{winner}", "Opponent forfeits. You win!"
+    if winner = opponent_for(uuid)
+      ActionCable.server.broadcast "player_#{winner}", "Opponent forfeits. You win!"
+    end
   end
 
   def self.opponent_for(uuid)
