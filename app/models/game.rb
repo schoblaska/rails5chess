@@ -2,8 +2,8 @@ class Game
   def self.start(uuid1, uuid2)
     white, black = [uuid1, uuid2].shuffle
 
-    ActionCable.server.broadcast "player_#{white}", "You play white"
-    ActionCable.server.broadcast "player_#{black}", "You play black"
+    ActionCable.server.broadcast "player_#{white}", {action: "game_start", msg: "white"}
+    ActionCable.server.broadcast "player_#{black}", {action: "game_start", msg: "black"}
 
     REDIS.set("opponent_for:#{white}", black)
     REDIS.set("opponent_for:#{black}", white)

@@ -8,8 +8,9 @@ App.game = App.cable.subscriptions.create "GameChannel",
 
   # Called when there's incoming data on the websocket for this channel
   received: (data) ->
-    console.log("Game channel received data...")
-    console.log(data)
+    if data.action == "game_start"
+      App.board.position("start")
+      App.board.orientation(data.msg)
 
 $ ->
-  board1 = ChessBoard('board1', {position: "start", pieceTheme: "assets/chesspieces/alpha/{piece}.png", showNotation: false})
+  App.board = ChessBoard("chessboard", { pieceTheme: "assets/chesspieces/alpha/{piece}.png", showNotation: false })
