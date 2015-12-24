@@ -10,3 +10,6 @@ App.game = App.cable.subscriptions.create "GameChannel",
   received: (data) ->
     console.log("Game channel received data...")
     console.log(data)
+
+$ ->
+  board1 = ChessBoard('board1', {position: "start", pieceTheme: "assets/chesspieces/alpha/{piece}.png", showNotation: false})
