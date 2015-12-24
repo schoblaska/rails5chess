@@ -107,7 +107,6 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
-    pg (0.18.4)
     puma (2.15.3)
     rack (2.0.0.alpha)
       json
@@ -176,7 +175,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.18)
   puma
   rails (>= 5.0.0.beta1, < 5.1)
   spring
