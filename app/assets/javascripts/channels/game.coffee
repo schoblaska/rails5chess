@@ -11,6 +11,3 @@ App.game = App.cable.subscriptions.create "GameChannel",
     if data.action == "game_start"
       App.board.position("start")
       App.board.orientation(data.msg)
-
-$ ->
-  App.board = ChessBoard("chessboard", { pieceTheme: "assets/chesspieces/alpha/{piece}.png", showNotation: false })
