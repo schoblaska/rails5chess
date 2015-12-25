@@ -18,4 +18,11 @@ class Game
   def self.opponent_for(uuid)
     REDIS.get("opponent_for:#{uuid}")
   end
+
+  def self.make_move(uuid, data)
+    opponent = opponent_for(uuid)
+    move_string = "#{data["from"]}-#{data["to"]}"
+
+    ActionCable.server.broadcast "player_#{opponent}", {action: "make_move", msg: move_string}
+  end
 end
