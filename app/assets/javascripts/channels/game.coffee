@@ -4,18 +4,21 @@ App.game = App.cable.subscriptions.create "GameChannel",
     @install()
 
   received: (data) ->
-    if data.action == "game_start"
-      App.board.position("start")
-      App.board.orientation(data.msg)
-      @printMessage("Game started! You play as #{data.msg}.")
-    else if data.action == "make_move"
-      [source, target] = data.msg.split("-")
+    switch data.action
+      when "game_start"
+        App.board.position("start")
+        App.board.orientation(data.msg)
+        @printMessage("Game started! You play as #{data.msg}.")
+      when "make_move"
+        [source, target] = data.msg.split("-")
 
-      App.board.move(data.msg)
-      App.game.move
-        from: source
-        to: target
-        promotion: "q"
+        App.board.move(data.msg)
+        App.game.move
+          from: source
+          to: target
+          promotion: "q"
+      when "opponent_forfeits"
+        @printMessage("Opponent forfeits. You win!")
 
   install: ->
     $(document).on "made_move", (event, move) =>
