@@ -10,4 +10,8 @@ class Seek
   def self.remove(uuid)
     REDIS.srem("seeks", uuid)
   end
+
+  def self.clear_all
+    REDIS.del("seeks")
+  end
 end
