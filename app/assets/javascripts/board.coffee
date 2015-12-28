@@ -1,5 +1,5 @@
 $ ->
-  App.game = new Chess()
+  App.chess = new Chess()
 
   cfg =
     draggable: true
@@ -7,14 +7,14 @@ $ ->
     showNotation: false
 
     onDragStart: (source, piece, position, orientation) =>
-      return !(App.game.game_over() ||
-               (App.game.turn() == "w" && piece.search(/^b/) != -1) ||
-               (App.game.turn() == "b" && piece.search(/^w/) != -1) ||
+      return !(App.chess.game_over() ||
+               (App.chess.turn() == "w" && piece.search(/^b/) != -1) ||
+               (App.chess.turn() == "b" && piece.search(/^w/) != -1) ||
                (orientation == "white" && piece.search(/^b/) != -1) ||
                (orientation == "black" && piece.search(/^w/) != -1))
 
     onDrop: (source, target) =>
-      move = App.game.move
+      move = App.chess.move
         from: source
         to: target
         promotion: "q"

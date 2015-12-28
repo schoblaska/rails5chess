@@ -13,7 +13,7 @@ App.game = App.cable.subscriptions.create "GameChannel",
         [source, target] = data.msg.split("-")
 
         App.board.move(data.msg)
-        App.game.move
+        App.chess.move
           from: source
           to: target
           promotion: "q"
