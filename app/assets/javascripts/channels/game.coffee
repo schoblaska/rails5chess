@@ -20,9 +20,5 @@ App.game = App.cable.subscriptions.create "GameChannel",
       when "opponent_forfeits"
         @printMessage("Opponent forfeits. You win!")
 
-  install: ->
-    $(document).on "made_move", (event, move) =>
-      @perform("make_move", move)
-
   printMessage: (message) ->
     $("#messages").append("<p>#{message}</p>")

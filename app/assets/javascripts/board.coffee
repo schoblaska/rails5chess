@@ -23,6 +23,6 @@ $ ->
         # illegal move
         return "snapback"
       else
-        $(document).trigger("made_move", move)
+        App.game.perform("make_move", move)
 
   App.board = ChessBoard("chessboard", cfg)
