@@ -4,7 +4,7 @@ module ApplicationCable
     identified_by :uuid
 
     def connect
-      self.uuid = SecureRandom.hex
+      self.uuid = SecureRandom.uuid
     end
   end
 end
