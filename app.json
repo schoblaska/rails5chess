@@ -1,0 +1,29 @@
+{
+  "name": "Rails 5 Chess Example",
+  "description": "Rails 5 app to demo Action Cable",
+  "keywords": [
+    "rails", "action cable"
+  ],
+  "repository": "https://github.com/joeyschoblaska/rails5chess",
+  "success_url": "/",
+  "scripts": {},
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "HOST": {
+      "description": "Action cable will allow request from this domain",
+      "value": "CHANGEME.herokuapp.com"
+    },
+    "PROTOCOL": "https",
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true"
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    "heroku-redis:hobby-dev"
+  ],
+  "buildpacks": []
+}
