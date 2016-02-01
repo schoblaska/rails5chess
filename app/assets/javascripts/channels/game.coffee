@@ -1,7 +1,6 @@
 App.game = App.cable.subscriptions.create "GameChannel",
   connected: ->
     @printMessage("Waiting for opponent...")
-    @install()
 
   received: (data) ->
     switch data.action
