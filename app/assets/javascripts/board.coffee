@@ -25,5 +25,6 @@ $ ->
         return "snapback"
       else
         App.game.perform("make_move", move)
+        App.board.position(App.chess.fen(), false)
 
   App.board = ChessBoard("chessboard", cfg)
