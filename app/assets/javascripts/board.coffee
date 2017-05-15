@@ -23,6 +23,8 @@ $ ->
       if (move == null)
         # illegal move
         return "snapback"
+      else if (App.chess.game_over())
+        alert("checkmate!")
       else
         App.game.perform("make_move", move)
         App.board.position(App.chess.fen(), false)
